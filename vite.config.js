@@ -1,18 +1,15 @@
-import { fileURLToPath, URL } from 'node:url'
-
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import vueDevTools from 'vite-plugin-vue-devtools'
+import path from 'path'
 
-// https://vite.dev/config/
+// When deploying to http://esquivellabs.com/vuejs-routing/
+// base must be set to '/vuejs-routing/' so assets load from /vuejs-routing/assets/
 export default defineConfig({
-  plugins: [
-    vue(),
-    vueDevTools(),
-  ],
+  base: '/vuejs-routing/',
+  plugins: [vue()],
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url)),
-    },
-  },
+      '@': path.resolve(__dirname, './src')
+    }
+  }
 })

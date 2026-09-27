@@ -6,33 +6,14 @@ import about from '@/components/about.vue'
 import contact from '@/components/contact.vue'
 
 const router = createRouter({
-  history: createWebHistory(),
+  // Automatically uses '/vuejs-routing/' from vite.config.js base
+  history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
-    {
-      path: '/',
-      name: 'home',
-      component: home
-    },
-    {
-      path: '/blog',
-      name: 'blog',
-      component: blog
-    },
-    {
-      path: '/gallery',
-      name: 'gallery',
-      component: gallery
-    },
-    {
-      path: '/about',
-      name: 'about',
-      component: about
-    },
-    {
-      path: '/contact',
-      name: 'contact',
-      component: contact
-    }
+    { path: '/', name: 'home', component: home },
+    { path: '/blog', name: 'blog', component: blog },
+    { path: '/gallery', name: 'gallery', component: gallery },
+    { path: '/about', name: 'about', component: about },
+    { path: '/contact', name: 'contact', component: contact }
   ]
 })
 
